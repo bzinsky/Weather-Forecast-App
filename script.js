@@ -10,6 +10,7 @@ let currentWeather = {}
 let weatherData = []
 let pastSearches = localStorage.getItem('past-searches')?.split(',') || []
 
+
 let searchElements = ''
 for(let city of pastSearches){
     if (city.length){
@@ -75,11 +76,11 @@ fetch("http://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&appid=3748
         day3.innerHTML = fillForecast(weatherData[2])
         day4.innerHTML = fillForecast(weatherData[3])
         day5.innerHTML = fillForecast(weatherData[4])
-        topCity.innerText = cityName
-        topTemp.innerHTML = `Temp: ${Math.round((currentWeather.main.temp-273.15)*1.8+32)} &#8457;`
+        topCity.innerText = cityName 
+        topTemp.innerHTML = `Current Temp: ${Math.round((currentWeather.main.temp-273.15)*1.8+32)} &#8457;`
         // let topWind = document.getElementById("topWind")
-        topWind.innerHTML = `Wind: ${currentWeather.wind.speed} MPH`
-        topHumidity.innerText = `Humidity: ${currentWeather.main.humidity}%` 
+        topWind.innerHTML = `Current Wind: ${currentWeather.wind.speed} MPH`
+        topHumidity.innerText = `Current Humidity: ${currentWeather.main.humidity}%` 
        
     })
 }
